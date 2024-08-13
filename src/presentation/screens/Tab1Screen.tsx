@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {globalStyles} from '../../config/appTheme';
 
 export const Tab1Screen = () => {
   useEffect(() => {
@@ -7,8 +9,10 @@ export const Tab1Screen = () => {
   }, []);
 
   return (
-    <View>
-      <Text>Tab1Screen</Text>
+    <View style={globalStyles.globalMargin}>
+      <Text style={globalStyles.title}>Iconos</Text>
+
+      <Icon name="airplane-outline" size={50} color={'#900'} />
     </View>
   );
 };
