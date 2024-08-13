@@ -1,10 +1,20 @@
+import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
+import {RootStackParams} from '../navigation/StackNavigator';
+import { globalStyles } from '../../config/appTheme';
 
-export const Pagina1Screen = () => {
+interface Props extends StackScreenProps<RootStackParams> {}
+
+export const Pagina1Screen = ({navigation}: Props) => {
   return (
-    <View>
+    <View style={globalStyles.globalMargin}>
       <Text>Pagina1Screen</Text>
+      <Button
+        title="Ir pagina 2"
+        onPress={() => navigation.navigate('Pagina2Screen')}
+      />
     </View>
   );
 };
+
