@@ -5,6 +5,7 @@ import {colors} from '../../config/appTheme';
 import {Tab1Screen} from '../screens/Tab1Screen';
 import {StackNavigator} from './StackNavigator';
 import {TopTabNavigator} from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIos /> : <TabsAndroid />;
@@ -34,17 +35,17 @@ const TabsAndroid = () => {
 
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'bandage-outline';
               break;
 
             case 'TopTabNavigator':
-              iconName = 'T2';
+              iconName = 'basketball-outline';
               break;
             case 'StackNavigator':
-              iconName = 'ST';
+              iconName = 'bookmarks-outline';
               break;
           }
-          return <Text style={{color}}>{iconName}</Text>;
+          return <Icon name={iconName} size={20} color={color} />;
         },
       })}>
       <BottomTabAndroid.Screen
@@ -91,17 +92,17 @@ const TabsIos = () => {
 
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1';
+              iconName = 'bandage-outline';
               break;
 
             case 'TopTabNavigator':
-              iconName = 'T2';
+              iconName = 'basketball-outline';
               break;
             case 'StackNavigator':
-              iconName = 'ST';
+              iconName = 'bookmarks-outline';
               break;
           }
-          return <Text style={{color}}>{iconName}</Text>;
+          return <Icon name={iconName} size={20} color={color} />;
         },
       })}>
       <BottomTabIos.Screen

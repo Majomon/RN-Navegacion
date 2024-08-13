@@ -6,8 +6,8 @@ import {
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {globalStyles} from '../../config/appTheme';
 import {SettingsScreen} from '../screens/SettingsScreen';
-import {StackNavigator} from './StackNavigator';
 import {Tabs} from './Tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
@@ -39,14 +39,24 @@ const MenuInterno = ({navigation}: DrawerContentComponentProps) => {
       {/* Opciones de menú */}
       <View style={globalStyles.menuContainer}>
         <TouchableOpacity
-          style={globalStyles.menuBoton}
+          style={{
+            ...globalStyles.menuBoton,
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}
           onPress={() => navigation.navigate('Tabs')}>
-          <Text style={globalStyles.menuTexto}>Tabs</Text>
+          <Icon name="compass-outline" size={20} color="black" />
+          <Text style={globalStyles.menuTexto}> Navegación</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={globalStyles.menuBoton}
+          style={{
+            ...globalStyles.menuBoton,
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}
           onPress={() => navigation.navigate('SettingsScreen')}>
-          <Text style={globalStyles.menuTexto}>Ajustes</Text>
+          <Icon name="cog-outline" size={20} color="black" />
+          <Text style={globalStyles.menuTexto}> Ajustes</Text>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
