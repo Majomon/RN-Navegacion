@@ -1,13 +1,22 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Button, Text, View} from 'react-native';
 import {RootStackParams} from '../navigation/StackNavigator';
 import {globalStyles} from '../../config/appTheme';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {DrawerScreenProps} from '@react-navigation/drawer';
 
-interface Props extends StackScreenProps<RootStackParams> {}
+interface Props extends DrawerScreenProps<RootStackParams> {}
 
 export const Pagina1Screen = ({navigation}: Props) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Button onPress={() => navigation.toggleDrawer()} title="Menú" />
+      ),
+    });
+  }, []);
+
   return (
     <View style={globalStyles.globalMargin}>
       <Text style={globalStyles.title}>Pagina1Screen</Text>
@@ -19,7 +28,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
       <View style={{flexDirection: 'row'}}>
         {/* Navegacion con argumentos */}
         <TouchableOpacity
-          style={{...globalStyles.botonGrande, backgroundColor:"#5856D6"}}
+          style={{...globalStyles.botonGrande, backgroundColor: '#5856D6'}}
           onPress={() =>
             navigation.navigate('PersonaScreen', {
               id: 1,
@@ -30,8 +39,8 @@ export const Pagina1Screen = ({navigation}: Props) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={{...globalStyles.botonGrande, backgroundColor:"#FF9427"}}
-           onPress={() =>
+          style={{...globalStyles.botonGrande, backgroundColor: '#FF9427'}}
+          onPress={() =>
             navigation.navigate('PersonaScreen', {
               id: 2,
               name: 'Maria',
