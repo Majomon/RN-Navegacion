@@ -15,12 +15,22 @@ export const globalStyles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight:10,
-    marginVertical:10
+    marginRight: 10,
+    marginVertical: 10,
   },
   botonGrandeTexto: {
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  avatarContainer:{
+    alignItems:"center",
+    marginVertical:20
+  },
+
+  avatar: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
   },
 });
