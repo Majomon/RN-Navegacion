@@ -3,6 +3,7 @@ import {Tab1Screen} from '../screens/Tab1Screen';
 import {Tab2Screen} from '../screens/Tab2Screen';
 import {StackNavigator} from './StackNavigator';
 import {colors} from '../../config/appTheme';
+import {Text} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,7 +13,7 @@ export const Tabs = () => {
       sceneContainerStyle={{
         backgroundColor: 'white',
       }}
-      screenOptions={{
+      screenOptions={({route}) => ({
         headerShown: false,
         tabBarActiveTintColor: colors.primary,
         tabBarStyle: {
@@ -20,7 +21,28 @@ export const Tabs = () => {
           borderTopWidth: 0,
           elevation: 0,
         },
-      }}>
+        tabBarLabelStyle: {
+          fontSize: 15,
+          fontWeight: 'bold',
+        },
+        tabBarIcon: ({color, focused, size}) => {
+          let iconName: string = '';
+
+          switch (route.name) {
+            case 'Tab1Screen':
+              iconName = 'T1';
+              break;
+
+            case 'Tab2Screen':
+              iconName = 'T2';
+              break;
+            case 'StackNavigator':
+              iconName = 'ST';
+              break;
+          }
+          return <Text style={{color}}>{iconName}</Text>;
+        },
+      })}>
       <Tab.Screen
         name="Tab1Screen"
         options={{title: 'Tab1'}}
@@ -39,3 +61,14 @@ export const Tabs = () => {
     </Tab.Navigator>
   );
 };
+
+{
+  /*      <Tab.Screen
+        name="Tab1Screen"
+        options={{
+          title: 'Tab1',
+          tabBarIcon: props => <Text style={{color: props.color}}>T1</Text>,
+        }}
+        component={Tab1Screen}
+      /> */
+}
