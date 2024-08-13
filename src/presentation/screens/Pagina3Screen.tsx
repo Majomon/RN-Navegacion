@@ -9,7 +9,8 @@ interface Props extends StackScreenProps<RootStackParams> {}
 export const Pagina3Screen = ({navigation}: Props) => {
   return (
     <View style={globalStyles.globalMargin}>
-      <Text>Pagina3Screen</Text>
+          <Text style={globalStyles.title}>Pagina3Screen</Text>
+
 
       <Button title="Regresar" onPress={() => navigation.pop()} />
 
